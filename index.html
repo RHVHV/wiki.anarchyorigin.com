@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Перенаправление... | AnarchyOrigin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600&display=swap" rel="stylesheet">
+    
+    <script>
+        const targetBase = "https://anarchyorigin.gitbook.io";
+        const path = window.location.pathname === '/' ? '' : window.location.pathname;
+        const finalUrl = targetBase + path + window.location.search + window.location.hash;
+        
+        window.location.replace(finalUrl);
+    </script>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #0b0c10;
+            color: #eef0f5;
+            font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .spinner {
+            width: 36px;
+            height: 36px;
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            border-top-color: #ff6b2c;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto 16px;
+        }
+
+        .text {
+            font-size: 16px;
+            font-weight: 600;
+            color: #8a90a2;
+        }
+
+        .fallback {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .fallback a {
+            color: #ff6b2c;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .fallback a:hover {
+            border-bottom-color: #ff6b2c;
+        }
+
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="spinner"></div>
+        <div class="text">Загрузка базы знаний...</div>
+        
+        <div class="fallback">
+            <a href="https://anarchyorigin.gitbook.io" id="manual-link">Перейти вручную</a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('manual-link').href = 
+            "https://anarchyorigin.gitbook.io" + 
+            (window.location.pathname === '/' ? '' : window.location.pathname) + 
+            window.location.search + 
+            window.location.hash;
+    </script>
+
+</body>
+</html>
