@@ -3,17 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Перенаправление... | AnarchyOrigin</title>
+    <title>Переход... | AnarchyOrigin</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600&display=swap" rel="stylesheet">
     
+    <meta http-equiv="refresh" content="0; url=https://anarchyorigin.tilda.ws/">
+    
     <script>
-        const targetBase = "https://anarchyorigin.gitbook.io";
-        const path = window.location.pathname === '/' ? '' : window.location.pathname;
-        const finalUrl = targetBase + path + window.location.search + window.location.hash;
-        
-        window.location.replace(finalUrl);
+        window.location.replace("https://anarchyorigin.tilda.ws/");
     </script>
 
     <style>
@@ -75,20 +73,12 @@
 
     <div class="container">
         <div class="spinner"></div>
-        <div class="text">Загрузка базы знаний...</div>
+        <div class="text">Загрузка...</div>
         
         <div class="fallback">
-            <a href="https://anarchyorigin.gitbook.io" id="manual-link">Перейти вручную</a>
+            <a href="https://anarchyorigin.tilda.ws/">Перейти вручную</a>
         </div>
     </div>
-
-    <script>
-        document.getElementById('manual-link').href = 
-            "https://anarchyorigin.gitbook.io" + 
-            (window.location.pathname === '/' ? '' : window.location.pathname) + 
-            window.location.search + 
-            window.location.hash;
-    </script>
 
 </body>
 </html>
