@@ -2,19 +2,14 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Переход... | AnarchyOrigin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Переход | AnarchyOrigin</title>
+    <meta name="robots" content="noindex, nofollow">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600&display=swap" rel="stylesheet">
-    
-    <meta http-equiv="refresh" content="0; url=https://anarchyorigin.tilda.ws/">
-    
-    <script>
-        window.location.replace("https://anarchyorigin.tilda.ws/");
-    </script>
-
     <style>
+        *, *::before, *::after { box-sizing: border-box; }
         body {
             margin: 0;
             padding: 0;
@@ -22,16 +17,19 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            min-height: 100dvh;
             background-color: #0b0c10;
             color: #eef0f5;
             font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
-
         .container {
             text-align: center;
             padding: 20px;
+            max-width: 420px;
+            width: 100%;
         }
-
         .spinner {
             width: 36px;
             height: 36px;
@@ -41,29 +39,24 @@
             animation: spin 0.8s linear infinite;
             margin: 0 auto 16px;
         }
-
         .text {
             font-size: 16px;
             font-weight: 600;
             color: #8a90a2;
         }
-
         .fallback {
             margin-top: 20px;
             font-size: 14px;
         }
-
         .fallback a {
             color: #ff6b2c;
             text-decoration: none;
             border-bottom: 1px solid transparent;
             transition: border-color 0.2s;
         }
-
         .fallback a:hover {
             border-bottom-color: #ff6b2c;
         }
-
         @keyframes spin {
             100% { transform: rotate(360deg); }
         }
@@ -73,12 +66,27 @@
 
     <div class="container">
         <div class="spinner"></div>
-        <div class="text">Загрузка...</div>
-        
+        <div class="text">Переход в Wiki...</div>
+
         <div class="fallback">
-            <a href="https://anarchyorigin.tilda.ws/">Перейти вручную</a>
+            <a id="manual-link" href="https://anarchyorigin.gitbook.io/">Перейти вручную</a>
         </div>
     </div>
+
+    <script>
+        (function () {
+            var base = 'https://anarchyorigin.gitbook.io';
+            var path = window.location.pathname || '';
+            var search = window.location.search || '';
+            var hash = window.location.hash || '';
+            var target = base + path + search + hash;
+
+            var link = document.getElementById('manual-link');
+            if (link) link.setAttribute('href', target);
+
+            window.location.replace(target);
+        })();
+    </script>
 
 </body>
 </html>
